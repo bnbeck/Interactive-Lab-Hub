@@ -69,14 +69,97 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 stop_watch = 0
+pyramid_person_height = 0
+break_stopwatch = False
+reset_watch = False
+
+interval_marker = 0
 
 from time import strftime, sleep
 while True:
+
+    if pyramid_person_height != 0 and pyramid_person_height <61:
+        if buttonA.value and not buttonB.value and reset_watch == True:
+#            pyramid_person_height = 0
+            break_stopwatch = True
+            reset_watch = True
+#            interval_marker += 1
+            draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+            draw.regular_polygon(bounding_circle =(width//2,height,height), n_sides =  3, fill=0)
+            draw.chord([(((width*pyramid_person_height/60)/2)-10, height-(height*pyramid_person_height/60)-10), (((width*pyramid_person_height/60)/2)+10, height-(height*pyramid_person_height/60))] , start = 30, end = 300, fill=0, outline=None, width=5)
+            if interval_marker == 0:
+                draw.text(((width/2)-45, height/2), str(10), font=font_massive, fill="#B31B1B")
+            if interval_marker == 1:
+                draw.text(((width/2)-45, height/2), str(30), font=font_massive, fill="#B31B1B")
+            elif interval_marker == 2:
+                draw.text(((width/2)-45, height/2), str(60), font=font_massive, fill="#B31B1B")
+            interval_marker += 1
+            disp.image(image, rotation)
+            time.sleep(1)
+            continue
+        if buttonA.value and not buttonB.value and reset_watch == False:
+            break_stopwatch = True
+            pyramid_person_height = 0
+            continue
+        if interval_marker == 3:
+            reset_watch = False
+            draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+            draw.regular_polygon(bounding_circle =(width//2,height,height), n_sides =  3, fill=0)
+            draw.chord([(((width*pyramid_person_height/60)/2)-10, height-(height*pyramid_person_height/60)-10), (((width*pyramid_person_height/60)/2)+10, height-(height*pyramid_person_height/60))] , start = 30, end = 300, fill=0, outline=None, width=5)
+            if pyramid_person_height < 61:
+                pyramid_person_height+=1
+                timer_countdown_text = str(61-pyramid_person_height)
+                draw.text(((width/2)-45, height/2), str(61-pyramid_person_height), font=font_massive, fill="#B31B1B")
+            else:
+                pyramid_person_height = 0
+                interval_marker = 0
+
+            disp.image(image, rotation)
+            time.sleep(1)
+            continue
+        elif interval_marker == 2:
+            reset_watch = False
+            draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+            draw.regular_polygon(bounding_circle =(width//2,height,height), n_sides =  3, fill=0)
+            draw.chord([(((width*pyramid_person_height/30)/2)-10, height-(height*pyramid_person_height/30)-10), (((width*pyramid_person_height/30)/2)+10, height-(height*pyramid_person_height/30))] , start = 30, end = 300, fill=0, outline=None, width=5)
+            if pyramid_person_height < 31:
+                pyramid_person_height+=1
+                timer_countdown_text = str(61-pyramid_person_height)
+                draw.text(((width/2)-45, height/2), str(31-pyramid_person_height), font=font_massive, fill="#B31B1B")
+            else:
+                pyramid_person_height = 0
+                interval_marker = 0
+
+            disp.image(image, rotation)
+            time.sleep(1)
+            continue
+
+        elif interval_marker == 1:
+            reset_watch = False
+            draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+            draw.regular_polygon(bounding_circle =(width//2,height,height), n_sides =  3, fill=0)
+            draw.chord([(((width*pyramid_person_height/10)/2)-10, height-(height*pyramid_person_height/10)-10), (((width*pyramid_person_height/10)/2)+10, height-(height*pyramid_person_height/10))] , start = 30, end = 300, fill=0, outline=None, width=5)
+            if pyramid_person_height < 11:
+                pyramid_person_height+=1
+                timer_countdown_text = str(61-pyramid_person_height)
+                draw.text(((width/2)-30, height/2), str(11-pyramid_person_height), font=font_massive, fill="#B31B1B")
+            else:
+                pyramid_person_height = 0
+                interval_marker = 0
+
+            disp.image(image, rotation)
+            time.sleep(1)
+            continue
     # Draw a black filled box to clear the image.
-    if buttonA.value and buttonB.value:
+    if break_stopwatch == True or buttonA.value and buttonB.value and pyramid_person_height == 0:
         backlight.value = True
+        break_stopwatch = False
+        interval_marker = 0
+
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
         stop_watch = 0
+        pyramid_person_height = 0
+
 
         date = strftime("%m/%d/%Y")
         time_nf = strftime("%H:%M:%S")
@@ -117,8 +200,8 @@ while True:
         if float(strftime("%H")) == 0:
                 hourint = str("You are outside aka Midnight")
         if float(strftime("%H")) == 23:
-                hourint = str("You are jetpacking down aka 11pm")       
-        
+                hourint = str("You are jetpacking down aka 11pm")
+
         dateint = dateint/41
         dateint = round(dateint, 3)
         dateint = str(dateint)
@@ -132,7 +215,11 @@ while True:
         draw.text((width/2-((font.getsize(hourint)[0])/2), y+1), date, font=font_big, fill=color565(0,255,0))
         y += font.getsize(date)[1]
         draw.text((width/2-((font.getsize(date)[0])/2), y+8), time_nf, font=font_big, fill=color565(0,255,0))
+        disp.image(image, rotation)
+        time.sleep(1)
 
+
+        continue
     if buttonB.value and not buttonA.value:  # just button A pressed
         backlight.value = True
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -143,6 +230,28 @@ while True:
         draw.text((width/2-((font.getsize("Timer")[0])/2)-12, y+1), "Timer", font=font_big, fill="#ADD8E6")
         y += font.getsize("Timer")[1]
         draw.text((width/2-((font.getsize(stop_watch_text)[0])/2)-15, y+30), stop_watch_text, font=font_massive, fill="#FFC0CB")
+
+    if buttonA.value and not buttonB.value and break_stopwatch == False:
+        draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+        y = top
+        draw.text((x+3, y+10), "Watch Pebbly climb", font=font_big, fill=0)
+        draw.text((x+3, y+35), "Hold 1s = 10s", font=font_big, fill=0)
+        draw.text((x+3, y+60), "Hold 2s = 30s", font=font_big, fill=0)
+        draw.text((x+3, y+85), "Hold 3s = 60s", font=font_big, fill=0)
+        disp.image(image, rotation)
+        time.sleep(2)
+
+        draw.rectangle((0, 0, width, height), outline=0, fill="#B31B1B")
+        draw.regular_polygon(bounding_circle =(width//2,height,height), n_sides =  3, fill=0)
+        draw.chord([(((width*pyramid_person_height/60)/2)-10, height-(height*pyramid_person_height/60)-10), (((width*pyramid_person_height/60)/2)+10, height-(height*pyramid_person_height/60))] , start = 30, end = 300, fill=0, outline=None, width=5)
+        break_stopwatch = False
+        reset_watch = True
+        draw.text(((width/2)-45, height/2), str(10), font=font_massive, fill="#B31B1B")
+        pyramid_person_height += 1
+        interval_marker = 0
+        disp.image(image, rotation)
+
+        continue
     # Display image.
     disp.image(image, rotation)
     time.sleep(1)
