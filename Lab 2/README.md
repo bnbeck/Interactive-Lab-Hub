@@ -180,8 +180,8 @@ You can push to your personal github repo by adding the files here, commiting an
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.   
-With the modified way of displaying time (cycles of the Eiffel Tower for days and months with Flatiron Buidling cycles for hours) it would be interesting to visually display this passage of time by having a small sprite climb the tower.  With relative height determining time.  
-Another feature could be added instead or in addition that acts a reminder for an upcoming task and checks if it is time for it yet.  Eg. If time == x flash screen a certain color or a certain message to remind the user to complete the action.
+With the modified way of displaying time (cycles of the Eiffel Tower for days and months with Flatiron Buidling cycles for hours, climbing different structures) it would be interesting to visually display this passage of time by having a small sprite climb an object such as a tower or pyramid.  With relative height determining time.  
+In addition another feature could be added to move between different preset times for a timer by pressing and holding a button for a fixed amount of time.  
 <img src="/Lab%202/Images/Sketch_for_week2.jpg" width="700"/>   
 
 After that, git will ask you to login to your github account to upload.
