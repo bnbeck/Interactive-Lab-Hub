@@ -130,7 +130,7 @@ Spring2021
 You can type the name of a color then press either of the buttons to see what happens on the display. take a look at the code with
 
 cat screen_test.py
-```
+
 
 #### Displaying Info
 You can look in `stats.py` for how to display text on the screen
