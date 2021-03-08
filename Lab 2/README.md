@@ -124,7 +124,6 @@ We can test it by typing
 python screen_test.py
 ```
 
-Spring2021
 <img src="/Lab%202/Images/screen_test.jpg" width="700"/>     
 
 You can type the name of a color then press either of the buttons to see what happens on the display. take a look at the code with
@@ -201,7 +200,8 @@ After that, git will ask you to login to your github account to upload.
 
 2. Look at and give feedback on the Part G. for at least 2 other people in the class (and get 2 people to comment on your Part G!)
 
-# Lab 2 Part 2
+# Lab 2 Part
+
 
 Pull Interactive Lab Hub updates to your repo.
 
