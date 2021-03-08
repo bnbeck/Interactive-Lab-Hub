@@ -205,6 +205,6 @@ After that, git will ask you to login to your github account to upload.
 **Click on the image below to be taken to a video of Pebbly climbing the hill**    
 
 <a href = "https://imgur.com/a/kCwo8R8">
-<img src="/Lab%202/Images/clock_upgrade_week_2..jpg" width="500"/> 
+<img src="/Lab%202/Images/clock_upgrade_week_2.jpg" width="500"/> 
 </a>
 
