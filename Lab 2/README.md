@@ -186,20 +186,6 @@ Another feature could be added instead or in addition that acts a reminder for a
 
 After that, git will ask you to login to your github account to upload.
 
-## Part F. 
-## Make a short video of your modified barebones PiClock
-
-**Take a video of your PiClock.**
-
-## Part G. 
-## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
-
-## Prep for Part 2
-
-1. Pick up remaining parts for kit.
-
-2. Look at and give feedback on the Part G. for at least 2 other people in the class (and get 2 people to comment on your Part G!)
-
 # Lab 2 Part
 
 **Click on the image below to be taken to a video of Pebbly climbing the hill**    
