@@ -186,11 +186,12 @@ Another feature could be added instead or in addition that acts a reminder for a
 
 After that, git will ask you to login to your github account to upload.
 
-# Lab 2 Part
-
-**Click on the image below to be taken to a video of Pebbly climbing the hill**    
+# Lab 2 Part 
 
 Modifications include the ability to press and hold buttons to switch between modes moving beyond only being able to actuate a fixed number of actions (ab, a, b, none) to an infinite number of possibilities using time based holds (a 1 second, ab 1 second, a 2 seconds etc.).  For the stopwatch the user can select between 3 present time increments 10 seconds, 30 seconds and 60 seconds.  The timer both has a numerical indicator as well as a pebble climbing up a pyramid, and when the pebble reaches the top the timer is at 0.    
+  
+**Click on the image below to be taken to a video of Pebbly climbing the hill**   
+  
   
 <a href = "https://imgur.com/a/kCwo8R8">
 <img src="/Lab%202/Images/clock_upgrade_week_2.jpg" width="500"/> 
